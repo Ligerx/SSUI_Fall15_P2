@@ -3,4 +3,4 @@
         android:title="@string/menu_settings"
         android:orderInCategory="100" />
 </menu>
-<!-- From: file:/Users/nbanovic/Documents/Teaching/SSUI/workspace/P2Collage/app/src/main/res/menu/activity_main.xml -->
+<!-- From: file:/Users/admin/Documents/05-433%20SSUI/P2Collage/app/src/main/res/menu/activity_main.xml -->
