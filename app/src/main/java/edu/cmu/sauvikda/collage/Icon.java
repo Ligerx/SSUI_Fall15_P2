@@ -18,6 +18,8 @@ public class Icon extends ArtistBase {
         super();
 
         setPosition(x, y);
+
+        // size is based on image size
         setSize(image.getWidth(), image.getHeight());
 
         this.image = image;
@@ -28,5 +30,14 @@ public class Icon extends ArtistBase {
         onCanvas.drawBitmap(image, 0, 0, new Paint());
 
         super.draw(onCanvas);
+    }
+
+    /**
+     * Size set by image
+     * @return true
+     */
+    @Override
+    public boolean sizeIsIntrinsic() {
+        return true;
     }
 }

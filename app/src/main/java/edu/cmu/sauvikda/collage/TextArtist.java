@@ -42,4 +42,13 @@ public class TextArtist extends ArtistBase {
 
         super.draw(onCanvas);
     }
+
+    /**
+     * Size set by text and style
+     * @return true
+     */
+    @Override
+    public boolean sizeIsIntrinsic() {
+        return true;
+    }
 }
