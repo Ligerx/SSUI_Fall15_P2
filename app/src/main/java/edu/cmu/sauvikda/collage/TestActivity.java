@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.NinePatch;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 
@@ -25,7 +26,7 @@ public class TestActivity extends Activity {
 
         // create an ArtistView widget and install a generated test tree there
         ArtistView root = new ArtistView(this);
-        root.setChildArtist(myTest4());
+        root.setChildArtist(myTest5());
         
         // put that widget in a frame so we have a layout object above it to 
         // listen to the fact that it doesn't want to be expanded to fill the
@@ -108,6 +109,24 @@ public class TestActivity extends Activity {
         return rootBackDrop;
     }
 
+
+    // text artist test
+    protected Artist myTest5() {
+        Artist rootBackDrop = new SolidBackDrop(0, 0, 800, 800, Color.CYAN);
+
+        Typeface type1 = Typeface.create("sans-serif-light", Typeface.NORMAL);
+        Typeface type2 = Typeface.create("sans-serif", Typeface.ITALIC);
+
+
+        TextArtist text1 = new TextArtist(100, 50, "Testinggggg text artist!", type1, 24);
+
+        TextArtist text2 = new TextArtist(0, 0, "blaaaaah", type2, 12);
+        text1.addChild(text2);
+
+        rootBackDrop.addChild(text1);
+
+        return rootBackDrop;
+    }
 
 
 
