@@ -26,7 +26,7 @@ public class TestActivity extends Activity {
 
         // create an ArtistView widget and install a generated test tree there
         ArtistView root = new ArtistView(this);
-        root.setChildArtist(myTest8()); // <===== CHANGE THIS TO TEST
+        root.setChildArtist(myTest9()); // <===== CHANGE THIS TO TEST
         
         // put that widget in a frame so we have a layout object above it to 
         // listen to the fact that it doesn't want to be expanded to fill the
@@ -205,6 +205,43 @@ public class TestActivity extends Activity {
         column.addChild(icon);
 
         return column;
+    }
+
+
+    // circle test
+    protected Artist myTest9() {
+        Artist circle = new Circle(0, 0, 1000, 1000, 200, 200, 150);
+
+        Artist backDrop1 = new SolidBackDrop(0, 0, 50, 50, Color.CYAN);
+        circle.addChild(backDrop1);
+
+        Artist backDrop2 = new SolidBackDrop(0, 0, 10, 10, Color.CYAN);
+        circle.addChild(backDrop2);
+
+        Artist backDrop3 = new SolidBackDrop(0, 0, 100, 25, Color.CYAN);
+        circle.addChild(backDrop3);
+
+        Artist backDrop4 = new SolidBackDrop(0, 0, 5, 30, Color.CYAN);
+        circle.addChild(backDrop4);
+//
+//        Artist backDrop5 = new SolidBackDrop(0, 0, 50, 50, Color.CYAN);
+//        circle.addChild(backDrop5);
+
+//        Artist simpleFrame = new SimpleFrame(10, 10, 100, 100);
+//        circle.addChild(simpleFrame);
+//
+//        Typeface type1 = Typeface.create("sans-serif-light", Typeface.NORMAL);
+//        TextArtist text1 = new TextArtist(100, 50, "This is a Jg", type1, 24);
+//        circle.addChild(text1);
+//
+//        Artist simpleFrame2 = new SimpleFrame(10, 10, 100, 100);
+//        circle.addChild(simpleFrame2);
+//
+//        Bitmap iconBitmap1 = BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher);
+//        Artist icon = new Icon(0, 0, iconBitmap1);
+//        circle.addChild(icon);
+
+        return circle;
     }
 
 
