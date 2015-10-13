@@ -1,11 +1,12 @@
 package edu.cmu.sauvikda.collage;
 
-import java.util.ArrayList;
-
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.PointF;
 import android.graphics.RectF;
+import android.util.Log;
+
+import java.util.ArrayList;
 
 public class ArtistBase extends ArtistPrebase {
 	protected PointF mPos;
@@ -171,6 +172,8 @@ public class ArtistBase extends ArtistPrebase {
 
 	@Override
 	public void draw(Canvas onCanvas) {
+		Log.i("ArtistBase draw", "Inside ArtistBase draw. Num Children: " + mChildren.size());
+		
 		for (Artist child : mChildren) {
 			onCanvas.save();
 			onCanvas.translate(child.getX(), child.getY());
