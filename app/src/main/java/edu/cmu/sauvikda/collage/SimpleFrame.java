@@ -21,7 +21,7 @@ public class SimpleFrame extends ArtistBase {
         border.setStrokeWidth(1);
 
         // -1 on width and height because the 1st pixel (0 index) is included
-        onCanvas.drawRect(getX(), getY(), getW() - 1, getH() - 1, border);
+        onCanvas.drawRect(0, 0, getW() - 1, getH() - 1, border);
 
         super.draw(onCanvas);
     }
