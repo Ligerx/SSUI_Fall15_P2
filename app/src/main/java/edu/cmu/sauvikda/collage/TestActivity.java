@@ -116,14 +116,21 @@ public class TestActivity extends Activity {
 
         Typeface type1 = Typeface.create("sans-serif-light", Typeface.NORMAL);
         Typeface type2 = Typeface.create("sans-serif", Typeface.ITALIC);
-
+        Typeface type3 = Typeface.create("sans-serif-condensed", Typeface.BOLD);
 
         TextArtist text1 = new TextArtist(100, 50, "Testinggggg text artist!", type1, 24);
 
         TextArtist text2 = new TextArtist(0, 0, "blaaaaah", type2, 12);
         text1.addChild(text2);
 
+        TextArtist text3 = new TextArtist(300, 300, "W y b W g j W", type3, 30);
+
+
+        TextArtist text4 = new TextArtist(100, 50, "Testing ROW", type1, 24); //not really
+
         rootBackDrop.addChild(text1);
+        rootBackDrop.addChild(text3);
+        rootBackDrop.addChild(text4);
 
         return rootBackDrop;
     }
@@ -153,7 +160,7 @@ public class TestActivity extends Activity {
 
     // row test
     protected Artist myTest7() {
-        Artist row = new Row(0, 0, 1000, 500);
+        Artist row = new Row(0, 0, 750, 500);
 
         Artist backDrop = new SolidBackDrop(0, 0, 400, 400, Color.CYAN);
         row.addChild(backDrop);
@@ -161,13 +168,16 @@ public class TestActivity extends Activity {
         Artist simpleFrame = new SimpleFrame(10, 10, 100, 100);
         row.addChild(simpleFrame);
 
+        Typeface type1 = Typeface.create("sans-serif-light", Typeface.NORMAL);
+        TextArtist text1 = new TextArtist(100, 50, "This is a Jg", type1, 24);
+        row.addChild(text1);
+
+        Artist simpleFrame2 = new SimpleFrame(10, 10, 100, 100);
+        row.addChild(simpleFrame2);
+
         Bitmap iconBitmap1 = BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher);
         Artist icon = new Icon(0, 0, iconBitmap1);
         row.addChild(icon);
-
-        Typeface type1 = Typeface.create("sans-serif-light", Typeface.NORMAL);
-        TextArtist text1 = new TextArtist(100, 50, "Testing ROW", type1, 24);
-        row.addChild(text1);
 
         return row;
     }
