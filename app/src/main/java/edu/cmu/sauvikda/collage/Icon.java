@@ -23,6 +23,10 @@ public class Icon extends ArtistBase {
         setSize(image.getWidth(), image.getHeight());
 
         this.image = image;
+
+        // OVERRIDE THESE SO sizeIsIntrinsic FUNCTIONS CORRECTLY
+        mWidth = image.getWidth();
+        mHeight = image.getHeight();
     }
 
     @Override

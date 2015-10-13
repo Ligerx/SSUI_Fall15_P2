@@ -28,6 +28,10 @@ public class TextArtist extends ArtistBase {
         this.bounds = bounds;
 
         setSize(bounds.width(), bounds.height());
+
+        // OVERRIDE THESE SO sizeIsIntrinsic FUNCTIONS CORRECTLY
+        mWidth = bounds.width();
+        mHeight = bounds.height();
     }
 
 

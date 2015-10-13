@@ -26,7 +26,7 @@ public class TestActivity extends Activity {
 
         // create an ArtistView widget and install a generated test tree there
         ArtistView root = new ArtistView(this);
-        root.setChildArtist(myTest5());
+        root.setChildArtist(myTest6());
         
         // put that widget in a frame so we have a layout object above it to 
         // listen to the fact that it doesn't want to be expanded to fill the
@@ -129,6 +129,26 @@ public class TestActivity extends Activity {
     }
 
 
+    // pile test
+    protected Artist myTest6() {
+        Artist pile = new Pile(0, 0, 500, 500);
+
+        Artist backDrop = new SolidBackDrop(0, 0, 400, 400, Color.CYAN);
+        pile.addChild(backDrop);
+
+        Artist simpleFrame = new SimpleFrame(10, 10, 100, 100);
+        pile.addChild(simpleFrame);
+
+        Bitmap iconBitmap1 = BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher);
+        Artist icon = new Icon(0, 0, iconBitmap1);
+        pile.addChild(icon);
+
+        Typeface type1 = Typeface.create("sans-serif-light", Typeface.NORMAL);
+        TextArtist text1 = new TextArtist(100, 50, "Testing PILE", type1, 24);
+        pile.addChild(text1);
+
+        return pile;
+    }
 
 
 
