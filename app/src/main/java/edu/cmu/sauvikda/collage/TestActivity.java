@@ -1,6 +1,8 @@
 package edu.cmu.sauvikda.collage;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.FrameLayout;
@@ -22,7 +24,7 @@ public class TestActivity extends Activity {
 
         // create an ArtistView widget and install a generated test tree there
         ArtistView root = new ArtistView(this);
-        root.setChildArtist(myTest2());
+        root.setChildArtist(myTest3());
         
         // put that widget in a frame so we have a layout object above it to 
         // listen to the fact that it doesn't want to be expanded to fill the
@@ -73,6 +75,21 @@ public class TestActivity extends Activity {
     }
 
 
+    // icon test
+    protected Artist myTest3() {
+        Artist rootBackDrop = new SolidBackDrop(0, 0, 800, 800, Color.CYAN);
+
+        Bitmap iconBitmap1 = BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher);
+        Artist icon1 = new Icon(0, 0, iconBitmap1);
+
+        Bitmap iconBitmap2 = BitmapFactory.decodeResource(getResources(), R.drawable.bluebutton);
+        Artist icon2 = new Icon(40, 10, iconBitmap2);
+
+        rootBackDrop.addChild(icon1);
+        rootBackDrop.addChild(icon2);
+
+        return rootBackDrop;
+    }
 
 
 

@@ -28,7 +28,7 @@ public class SolidBackDrop extends ArtistBase {
     /**
      * Draw black border rectangle, then draw all children
      *
-     * @param onCanvas alrady translated and clipped canvas to draw on
+     * @param onCanvas already translated and clipped canvas to draw on
      */
     @Override
     public void draw(Canvas onCanvas) {
