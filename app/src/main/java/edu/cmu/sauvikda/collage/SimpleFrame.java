@@ -5,14 +5,26 @@ import android.graphics.Color;
 import android.graphics.Paint;
 
 public class SimpleFrame extends ArtistBase {
+    /**
+     * SimpleFrame draws a black line rectangle (with no fill).
+     *
+     * @param x x position
+     * @param y y position
+     * @param w width
+     * @param h height
+     */
     public SimpleFrame(float x, float y, float w, float h) {
-        // TODO
         super();
 
         setPosition(x, y);
         setSize(w, h);
     }
 
+    /**
+     * Draw black border rectangle, then draw all children
+     *
+     * @param onCanvas alrady translated and clipped canvas to draw on
+     */
     @Override
     public void draw(Canvas onCanvas) {
         Paint border = new Paint();

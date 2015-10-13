@@ -173,7 +173,7 @@ public class ArtistBase extends ArtistPrebase {
 	@Override
 	public void draw(Canvas onCanvas) {
 		Log.i("ArtistBase draw", "Inside ArtistBase draw. Num Children: " + mChildren.size());
-		
+
 		for (Artist child : mChildren) {
 			onCanvas.save();
 			onCanvas.translate(child.getX(), child.getY());

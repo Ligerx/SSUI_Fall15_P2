@@ -20,7 +20,11 @@ public class TestActivity extends Activity {
 //        return /* replace this: */ new ArtistBase();
 
         Artist rootFrame = new SimpleFrame(0, 0, 500, 500);
-        rootFrame.addChild(new SimpleFrame(50, 50, 100, 200));
+        Artist childFrame = new SimpleFrame(50, 50, 100, 200);
+
+        childFrame.addChild(new SimpleFrame(5, 5, 150, 190));
+        rootFrame.addChild(childFrame);
+
         rootFrame.addChild(new SimpleFrame(80, 70, 100, 200));
 
 		return rootFrame;
