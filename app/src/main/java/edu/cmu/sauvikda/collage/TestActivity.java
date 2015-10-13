@@ -1,6 +1,7 @@
 package edu.cmu.sauvikda.collage;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 
@@ -12,24 +13,7 @@ import android.widget.FrameLayout;
  *
  */
 public class TestActivity extends Activity {
-	
-	protected Artist buildTest() {
-		// create and return a test Artist tree here...
-        Artist child = new ArtistBase();
-        child.addChild(new ArtistBase());
-//        return /* replace this: */ new ArtistBase();
 
-        Artist rootFrame = new SimpleFrame(0, 0, 500, 500);
-        Artist childFrame = new SimpleFrame(50, 50, 100, 200);
-
-        childFrame.addChild(new SimpleFrame(5, 5, 150, 190));
-        rootFrame.addChild(childFrame);
-
-        rootFrame.addChild(new SimpleFrame(80, 70, 100, 200));
-
-		return rootFrame;
-	}
-	
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,7 +22,7 @@ public class TestActivity extends Activity {
 
         // create an ArtistView widget and install a generated test tree there
         ArtistView root = new ArtistView(this);
-        root.setChildArtist(buildTest());
+        root.setChildArtist(myTest2());
         
         // put that widget in a frame so we have a layout object above it to 
         // listen to the fact that it doesn't want to be expanded to fill the
@@ -48,7 +32,61 @@ public class TestActivity extends Activity {
         frame.addView(root);
         setContentView(frame);
     }
-    
+
+    // Basic test of SimpleFrames
+    protected Artist myTest1() {
+        Artist rootFrame = new SimpleFrame(0, 0, 500, 500);
+        Artist childFrame = new SimpleFrame(50, 50, 100, 200);
+
+        childFrame.addChild(new SimpleFrame(5, 5, 150, 190));
+        rootFrame.addChild(childFrame);
+
+        rootFrame.addChild(new SimpleFrame(80, 70, 100, 200));
+
+        return rootFrame;
+    }
+
+
+    // Basic test of SolidBackDrops
+    protected Artist myTest2() {
+        Artist rootBackDrop = new SolidBackDrop(0, 0, 800, 500, Color.CYAN);
+
+        Artist drop2 = new SolidBackDrop(30, 30, 200, 200, Color.GRAY);
+        Artist drop3 = new SolidBackDrop(5, 5, 190, 190, Color.BLACK);
+
+        Artist drop4 = new SolidBackDrop(300, 80, 200, 200, Color.WHITE);
+        Artist drop5 = new SolidBackDrop(1, 1, 198, 198, Color.BLACK);
+
+        Artist drop6 = new SolidBackDrop(100, 300, 150, 150, Color.GREEN);
+        Artist drop7 = new SolidBackDrop(0, 0, 100, 200, Color.BLACK);
+        Artist drop8 = new SolidBackDrop(50, 50, 50, 50, Color.YELLOW);
+
+        drop2.addChild(drop3);
+        drop4.addChild(drop5);
+        drop6.addChild(drop7);
+        drop6.addChild(drop8);
+        rootBackDrop.addChild(drop2);
+        rootBackDrop.addChild(drop4);
+        rootBackDrop.addChild(drop6);
+
+        return rootBackDrop;
+    }
+
+
+
+
+
+
+
+    protected Artist buildTest() {
+        // create and return a test Artist tree here...
+        Artist child = new ArtistBase();
+        child.addChild(new ArtistBase());
+        return /* replace this: */ new ArtistBase();
+    }
+
+
+
 
 //	protected Artist buildTest1(){
 //		SolidBackDrop rootArtist = new SolidBackDrop(0, 0, 400, 800, Color.WHITE);

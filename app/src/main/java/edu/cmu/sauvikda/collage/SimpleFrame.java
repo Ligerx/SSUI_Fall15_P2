@@ -33,6 +33,11 @@ public class SimpleFrame extends ArtistBase {
         border.setStrokeWidth(1);
 
         // -1 on width and height because the 1st pixel (0 index) is included
+        // Java's placement on the border lines are really weird...
+        //
+        // It draws the top and left borders on the 0 pixel
+        // BUT it draws the right and bottom ones PAST the last pixel
+        // WHY U DO DIS
         onCanvas.drawRect(0, 0, getW() - 1, getH() - 1, border);
 
         super.draw(onCanvas);
