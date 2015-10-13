@@ -26,7 +26,7 @@ public class TestActivity extends Activity {
 
         // create an ArtistView widget and install a generated test tree there
         ArtistView root = new ArtistView(this);
-        root.setChildArtist(myTest6());
+        root.setChildArtist(myTest7());
         
         // put that widget in a frame so we have a layout object above it to 
         // listen to the fact that it doesn't want to be expanded to fill the
@@ -150,6 +150,27 @@ public class TestActivity extends Activity {
         return pile;
     }
 
+
+    // row test
+    protected Artist myTest7() {
+        Artist row = new Row(0, 0, 1000, 500);
+
+        Artist backDrop = new SolidBackDrop(0, 0, 400, 400, Color.CYAN);
+        row.addChild(backDrop);
+
+        Artist simpleFrame = new SimpleFrame(10, 10, 100, 100);
+        row.addChild(simpleFrame);
+
+        Bitmap iconBitmap1 = BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher);
+        Artist icon = new Icon(0, 0, iconBitmap1);
+        row.addChild(icon);
+
+        Typeface type1 = Typeface.create("sans-serif-light", Typeface.NORMAL);
+        TextArtist text1 = new TextArtist(100, 50, "Testing ROW", type1, 24);
+        row.addChild(text1);
+
+        return row;
+    }
 
 
     protected Artist buildTest() {
