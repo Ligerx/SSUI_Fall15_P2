@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.NinePatch;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 
@@ -24,7 +25,7 @@ public class TestActivity extends Activity {
 
         // create an ArtistView widget and install a generated test tree there
         ArtistView root = new ArtistView(this);
-        root.setChildArtist(myTest3());
+        root.setChildArtist(myTest4());
         
         // put that widget in a frame so we have a layout object above it to 
         // listen to the fact that it doesn't want to be expanded to fill the
@@ -90,6 +91,23 @@ public class TestActivity extends Activity {
 
         return rootBackDrop;
     }
+
+
+    // nine part image test
+    protected Artist myTest4() {
+        Artist rootBackDrop = new SolidBackDrop(0, 0, 800, 800, Color.CYAN);
+
+        Bitmap patchImage = BitmapFactory.decodeResource(getResources(), R.drawable.bluebutton);
+        byte[] chunk = patchImage.getNinePatchChunk();
+        NinePatch np = new NinePatch(patchImage, chunk, null);
+
+        Artist npImage = new NinePartImage(50, 50, 400, 200, np);
+
+        rootBackDrop.addChild(npImage);
+
+        return rootBackDrop;
+    }
+
 
 
 
