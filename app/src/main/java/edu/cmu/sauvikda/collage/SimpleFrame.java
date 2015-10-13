@@ -20,7 +20,8 @@ public class SimpleFrame extends ArtistBase {
         border.setStyle(Paint.Style.STROKE);
         border.setStrokeWidth(1);
 
-        onCanvas.drawRect(getX(), getY(), getW(), getH(), border);
+        // -1 on width and height because the 1st pixel (0 index) is included
+        onCanvas.drawRect(getX(), getY(), getW() - 1, getH() - 1, border);
 
         super.draw(onCanvas);
     }
