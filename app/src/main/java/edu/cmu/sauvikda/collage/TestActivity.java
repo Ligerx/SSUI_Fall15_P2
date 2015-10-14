@@ -26,7 +26,7 @@ public class TestActivity extends Activity {
 
         // create an ArtistView widget and install a generated test tree there
         ArtistView root = new ArtistView(this);
-        root.setChildArtist(myTest9()); // <===== CHANGE THIS TO TEST
+        root.setChildArtist(myTest10()); // <======================= CHANGE THIS TO TEST
         
         // put that widget in a frame so we have a layout object above it to 
         // listen to the fact that it doesn't want to be expanded to fill the
@@ -242,6 +242,20 @@ public class TestActivity extends Activity {
 //        circle.addChild(icon);
 
         return circle;
+    }
+
+
+    // oval test
+    protected Artist myTest10() {
+        Artist oval = new OvalClip(0, 0, 500, 300);
+
+        Artist backDrop1 = new SolidBackDrop(0, 0, 300, 300, Color.GRAY);
+        oval.addChild(backDrop1);
+
+        Artist backDrop2 = new SolidBackDrop(100, 100, 300, 300, Color.CYAN);
+        oval.addChild(backDrop2);
+
+        return oval;
     }
 
 
