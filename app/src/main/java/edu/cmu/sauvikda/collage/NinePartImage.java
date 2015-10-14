@@ -23,7 +23,7 @@ public class NinePartImage extends ArtistBase {
         setPosition(x, y);
         setSize(w, h);
 
-        this.rect = new RectF(x, y, w, h);
+        this.rect = new RectF(0, 0, w, h);
         this.patches = patches;
     }
 
