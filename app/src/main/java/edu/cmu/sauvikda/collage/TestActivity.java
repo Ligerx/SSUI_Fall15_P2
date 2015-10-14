@@ -26,7 +26,7 @@ public class TestActivity extends Activity {
 
         // create an ArtistView widget and install a generated test tree there
         ArtistView root = new ArtistView(this);
-        root.setChildArtist(myTest10()); // <======================= CHANGE THIS TO TEST
+        root.setChildArtist(myTest9()); // <======================= CHANGE THIS TO TEST
         
         // put that widget in a frame so we have a layout object above it to 
         // listen to the fact that it doesn't want to be expanded to fill the
@@ -212,17 +212,34 @@ public class TestActivity extends Activity {
     protected Artist myTest9() {
         Artist circle = new Circle(0, 0, 1000, 1000, 200, 200, 150);
 
-        Artist backDrop1 = new SolidBackDrop(0, 0, 50, 50, Color.CYAN);
+//        Artist backDrop1 = new SolidBackDrop(0, 0, 50, 50, Color.CYAN);
+//        circle.addChild(backDrop1);
+//
+//        Artist backDrop2 = new SolidBackDrop(0, 0, 10, 10, Color.GRAY);
+//        circle.addChild(backDrop2);
+//
+//        Artist backDrop3 = new SolidBackDrop(0, 0, 100, 25, Color.RED);
+//        circle.addChild(backDrop3);
+//
+//        Artist backDrop4 = new SolidBackDrop(0, 0, 5, 30, Color.GREEN);
+//        circle.addChild(backDrop4);
+
+
+
+        Artist backDrop1 = new SimpleFrame(0, 0, 50, 50);
         circle.addChild(backDrop1);
 
-        Artist backDrop2 = new SolidBackDrop(0, 0, 10, 10, Color.CYAN);
+        Artist backDrop2 = new SimpleFrame(0, 0, 10, 10);
         circle.addChild(backDrop2);
 
-        Artist backDrop3 = new SolidBackDrop(0, 0, 100, 25, Color.CYAN);
+        Artist backDrop3 = new SimpleFrame(0, 0, 100, 25);
         circle.addChild(backDrop3);
 
-        Artist backDrop4 = new SolidBackDrop(0, 0, 5, 30, Color.CYAN);
+        Artist backDrop4 = new SimpleFrame(0, 0, 5, 30);
         circle.addChild(backDrop4);
+
+
+
 //
 //        Artist backDrop5 = new SolidBackDrop(0, 0, 50, 50, Color.CYAN);
 //        circle.addChild(backDrop5);

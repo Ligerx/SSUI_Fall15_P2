@@ -52,12 +52,14 @@ public class Circle extends ArtistBase {
     private void setChildPosition(Artist child, float angleDeg) {
         // Find the correct position
         // NOTE: this is currently starting at 0 degrees center right.
+        // also, due to how y starts at the top, the circle goes clockwise instead of counterclockwise
         float xPos = radius * (float) Math.cos(Math.toRadians(angleDeg)) + x;
         float yPos = radius * (float) Math.sin(Math.toRadians(angleDeg)) + y;
 
         // Also position them based on the center of the child
-        float centeredXPos = xPos - (child.getW() / 2);
-        float centeredYPos = yPos - (child.getH() / 2);
+        // need to be int otherwise you run into rounding errors...
+        int centeredXPos = (int) (xPos - (child.getW() / 2));
+        int centeredYPos = (int) (yPos - (child.getH() / 2));
 
         child.setPosition(centeredXPos, centeredYPos);
     }
